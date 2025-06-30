@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FETYSA Makeup</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <header > <img src="logo.jpg" alt=""></header>
+    <h1>FETYSA Makeup</h1> 
+    <div class="top-icons">
+      <i class="fas fa-search"></i>
+      <i class="fas fa-user"></i>
+      <i class="fas fa-heart"></i>
+      <i class="fas fa-shopping-cart"></i>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-center">
+      <button onclick="abrirPersonalizacao()">Fazer meu gloss</button>
+      <button onclick="mostrarModelosProntos()">Modelos prontos</button>
+    </section>
+
+    <section id="personalizarGloss" class="oculto">
+      <div id="etapa-cor" class="etapa">
+        <h2>Escolha a cor:</h2>
+        <div class="opcoes">
+          <button onclick="selecionarCor('Marrom')">Marrom</button>
+          <button onclick="selecionarCor('Rosa Bebê')">Rosa Bebê</button>
+          <button onclick="selecionarCor('Rosa Escuro')">Rosa Escuro</button>
+          <button onclick="selecionarCor('Vermelho')">Vermelho</button>
+          <button onclick="selecionarCor('Transparente')">Transparente</button>
+        </div>
+      </div>
+
+      <div id="etapa-glitter" class="etapa oculto">
+        <h2>Deseja com glitter?</h2>
+        <div class="opcoes">
+          <button onclick="selecionarGlitter(true)">Com glitter</button>
+          <button onclick="selecionarGlitter(false)">Sem glitter</button>
+        </div>
+      </div>
+
+      <div id="etapa-aroma" class="etapa oculto">
+        <h2>Escolha o aroma:</h2>
+        <div class="opcoes">
+          <button onclick="selecionarAroma('Morango')">Morango</button>
+          <button onclick="selecionarAroma('Melancia')">Melancia</button>
+          <button onclick="selecionarAroma('Baunilha')">Baunilha</button>
+          <button onclick="selecionarAroma('Chocolate')">Chocolate</button>
+        </div>
+      </div>
+
+      <div id="etapa-embalagem" class="etapa oculto">
+        <h2>Escolha a embalagem:</h2>
+        <div class="opcoes">
+          <button onclick="selecionarEmbalagem('Carmed')">
+            <img src="embalagem1.png" alt="Carmed" style="width: 60px;"><br>
+            Embalagem 1
+          </button>
+          <button onclick="selecionarEmbalagem('Normal')">
+            <img src="embalagem2.png" alt="Normal" style="width: 60px;"><br>
+            embalagem 2
+          </button>
+        </div>
+      </div>
+      
+
+      <div id="etapa-final" class="etapa oculto">
+        <h2>Finalizar Pedido</h2>
+        <button onclick="finalizarPedido()">Finalizar compra</button>
+      </div>
+    </section>
+
+    <section id="modelosProntos" class="oculto">
+      <h2>Modelos Prontos</h2>
+      <div class="produtos-container">
+        <div class="produto">
+          <img src="vermelhocintilante.png" alt="Gloss Vermelho Cintilante" />
+          <h3>Vermelho Cintilante</h3>
+          <p>R$ 25,00</p>
+        </div>
+        <div class="produto">
+          <img src="glossrosaluxo.png" alt="Gloss Rosa Luxo" />
+          <h3>Rosa Luxo</h3>
+          <p>R$ 22,00</p>
+        </div>
+        <div class="produto">
+          <img src="translucido shine.png" alt="Gloss Transparente Shine" />
+          <h3>Translucido Shine</h3>
+          <p>R$ 20,00</p>
+        </div>
+        <div class="produto">
+          <img src="glosschocolate.png" alt="Gloss Marrom Nude" />
+          <h3>Marrom Nude</h3>
+          <p>R$ 24,00</p>
+        </div>
+        <div class="produto">
+          <img src="rosabebe.png" alt="Gloss Rosa Bebê" />
+          <h3>Rosa Bebê</h3>
+          <p>R$ 23,00</p>
+        </div>
+      </div>
+    </section>
+     
+
+</main>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 FETYSA Makeup. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>

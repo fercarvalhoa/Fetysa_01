@@ -1,0 +1,152 @@
+/* Reset básico */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Cabeçalho com glitter rosa */
+.glitter-header {
+  background: url('images/glitter-rose.jpg');
+  background-size: cover;
+  padding: 2rem;
+  text-align: center;
+  color: #d4af37;
+  position: relative;
+}
+
+.glitter-header h1 {
+  font-size: 3rem;
+  margin: 0;
+  color: #d4af37;
+  text-shadow: 1px 1px 2px #fff;
+}
+
+.top-icons {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  display: flex;
+  gap: 15px;
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+.top-icons i {
+  cursor: pointer;
+}
+
+/* Botões principais */
+.hero-center {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 3rem auto;
+  flex-wrap: wrap;
+}
+
+.hero-center button {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  background-color: #ffc0cb;
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.hero-center button:hover {
+  background-color: #d4af37;
+  color: #fff;
+}
+
+/* Seções ocultas */
+.oculto {
+  display: none;
+}
+
+/* Estilo das etapas de personalização */
+.etapa {
+  padding: 2rem;
+  text-align: center;
+}
+
+.etapa h2 {
+  margin-bottom: 1rem;
+  color: #d4af37;
+}
+
+.opcoes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.opcoes button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff0f5;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.opcoes button:hover {
+  background-color: #ffc0cb;
+  color: #fff;
+  border-color: #d4af37;
+}
+
+/* Produtos prontos */
+.produtos-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  padding: 5rem;
+}
+
+.produto {
+  width: 200px;
+  border: 1px solid #f0f0f0;
+  border-radius: 10px;
+  padding: 0.5rem;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(255, 192, 203, 0.3);
+  background-color: #fff;
+}
+
+.produto img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #fff0f5;
+  color: #888;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .top-icons {
+    position: static;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  .hero-center {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.opcoes button img {
+  display: block;
+  margin: 0 auto 0.5rem;
+  border-radius: 6px;
+}
