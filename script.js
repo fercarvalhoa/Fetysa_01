@@ -9,12 +9,14 @@ function abrirPersonalizacao() {
   document.getElementById('personalizarGloss').classList.remove('oculto');
   document.getElementById('modelosProntos').classList.add('oculto');
   mostrarEtapa('etapa-cor');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // Mostrar modelos prontos
 function mostrarModelosProntos() {
   document.getElementById('modelosProntos').classList.remove('oculto');
   document.getElementById('personalizarGloss').classList.add('oculto');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // Mostrar etapas
@@ -22,6 +24,7 @@ function mostrarEtapa(id) {
   const etapas = document.querySelectorAll('.etapa');
   etapas.forEach(etapa => etapa.classList.add('oculto'));
   document.getElementById(id).classList.remove('oculto');
+  window.scrollTo({ top: document.getElementById(id).offsetTop - 20, behavior: 'smooth' });
 }
 
 // Etapas da personalização

@@ -32,6 +32,8 @@ body {
   gap: 15px;
   font-size: 1.4rem;
   color: #fff;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .top-icons i {
@@ -94,6 +96,10 @@ body {
   color: #333;
   cursor: pointer;
   transition: background 0.3s;
+  max-width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .opcoes button:hover {
@@ -102,20 +108,25 @@ body {
   border-color: #d4af37;
 }
 
+.opcoes button img {
+  width: 60px;
+  margin-bottom: 0.5rem;
+}
+
 /* Produtos prontos */
 .produtos-container {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
   justify-content: center;
-  padding: 5rem;
+  padding: 2rem;
 }
 
 .produto {
   width: 200px;
   border: 1px solid #f0f0f0;
   border-radius: 10px;
-  padding: 0.5rem;
+  padding: 1rem;
   text-align: center;
   box-shadow: 0 0 10px rgba(255, 192, 203, 0.3);
   background-color: #fff;
@@ -134,19 +145,28 @@ footer {
 }
 
 /* Responsivo */
-@media (max-width: 600px) {
-  .top-icons {
-    position: static;
-    justify-content: center;
-    margin-top: 1rem;
-  }
+@media (max-width: 768px) {
   .hero-center {
     flex-direction: column;
     align-items: center;
   }
-}
-.opcoes button img {
-  display: block;
-  margin: 0 auto 0.5rem;
-  border-radius: 6px;
+
+  .opcoes {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .top-icons {
+    justify-content: center;
+    position: static;
+    margin-top: 1rem;
+  }
+
+  .produto {
+    width: 90%;
+  }
+
+  .glitter-header h1 {
+    font-size: 2rem;
+  }
 }

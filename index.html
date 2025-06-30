@@ -7,10 +7,36 @@
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    @media (max-width: 768px) {
+      .hero-center {
+        flex-direction: column;
+        align-items: center;
+      }
+      .opcoes {
+        flex-direction: column;
+        align-items: center;
+      }
+      .top-icons {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header > <img src="logo.jpg" alt=""></header>
-    <h1>FETYSA Makeup</h1> 
+  <header class="glitter-header">
+    <h1>FETYSA Makeup</h1>
     <div class="top-icons">
       <i class="fas fa-search"></i>
       <i class="fas fa-user"></i>
@@ -59,16 +85,15 @@
         <h2>Escolha a embalagem:</h2>
         <div class="opcoes">
           <button onclick="selecionarEmbalagem('Carmed')">
-            <img src="embalagem1.png" alt="Carmed" style="width: 60px;"><br>
-            Embalagem 1
+            <img src="images/embalagem-carmed.png" alt="Carmed" style="width: 60px;"><br>
+            Estilo Carmed
           </button>
           <button onclick="selecionarEmbalagem('Normal')">
-            <img src="embalagem2.png" alt="Normal" style="width: 60px;"><br>
-            embalagem 2
+            <img src="images/embalagem-normal.png" alt="Normal" style="width: 60px;"><br>
+            Batom Normal
           </button>
         </div>
       </div>
-      
 
       <div id="etapa-final" class="etapa oculto">
         <h2>Finalizar Pedido</h2>
@@ -91,7 +116,7 @@
         </div>
         <div class="produto">
           <img src="translucido shine.png" alt="Gloss Transparente Shine" />
-          <h3>Translucido Shine</h3>
+          <h3>Transparente Shine</h3>
           <p>R$ 20,00</p>
         </div>
         <div class="produto">
@@ -100,16 +125,12 @@
           <p>R$ 24,00</p>
         </div>
         <div class="produto">
-          <img src="rosabebe.png" alt="Gloss Rosa Bebê" />
+          <img src="glosrosa.png" alt="Gloss Rosa Bebê" />
           <h3>Rosa Bebê</h3>
           <p>R$ 23,00</p>
         </div>
       </div>
     </section>
-     
-
-</main>
-
   </main>
 
   <footer>
