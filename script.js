@@ -1,73 +1,146 @@
-// Variáveis para armazenar escolhas
-let corEscolhida = "";
-let glitterEscolhido = null;
-let aromaEscolhido = "";
-let embalagemEscolhida = "";
+// script.js
 
-// Abrir personalização
+let etapaAtual = 0;
+const etapas = [
+  "etapa-cor",
+  "etapa-glitter",
+  "etapa-aroma",
+  "etapa-embalagem",
+  "etapa-final"
+];
+
+const carrinho = [];
+const desejos = [];
+
 function abrirPersonalizacao() {
-  document.getElementById('personalizarGloss').classList.remove('oculto');
-  document.getElementById('modelosProntos').classList.add('oculto');
-  mostrarEtapa('etapa-cor');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.getElementById("personalizacao").classList.remove("oculto");
+  mostrarEtapa(0);
 }
 
-// Mostrar modelos prontos
-function mostrarModelosProntos() {
-  document.getElementById('modelosProntos').classList.remove('oculto');
-  document.getElementById('personalizarGloss').classList.add('oculto');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+function mostrarEtapa(index) {
+  etapas.forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (el) el.classList.toggle("oculto", i !== index);
+  });
+  etapaAtual = index;
 }
 
-// Mostrar etapas
-function mostrarEtapa(id) {
-  const etapas = document.querySelectorAll('.etapa');
-  etapas.forEach(etapa => etapa.classList.add('oculto'));
-  document.getElementById(id).classList.remove('oculto');
-  window.scrollTo({ top: document.getElementById(id).offsetTop - 20, behavior: 'smooth' });
-}
+let glossPersonalizado = {
+  cor: "",
+  glitter: null,
+  aroma: "",
+  embalagem: ""
+};
 
-// Etapas da personalização
 function selecionarCor(cor) {
-  corEscolhida = cor;
-  mostrarEtapa('etapa-glitter');
+  glossPersonalizado.cor = cor;
+  mostrarEtapa(1);
 }
 
-function selecionarGlitter(opcao) {
-  glitterEscolhido = opcao;
-  mostrarEtapa('etapa-aroma');
+function selecionarGlitter(glitter) {
+  glossPersonalizado.glitter = glitter;
+  mostrarEtapa(2);
 }
 
 function selecionarAroma(aroma) {
-  aromaEscolhido = aroma;
-  mostrarEtapa('etapa-embalagem');
+  glossPersonalizado.aroma = aroma;
+  mostrarEtapa(3);
 }
 
-function selecionarEmbalagem(tipo) {
-  embalagemEscolhida = tipo;
-  mostrarEtapa('etapa-final');
+function selecionarEmbalagem(embalagem) {
+  glossPersonalizado.embalagem = embalagem;
+  mostrarEtapa(4);
 }
 
-// Finalizar pedido
 function finalizarPedido() {
-  if (!corEscolhida || glitterEscolhido === null || !aromaEscolhido || !embalagemEscolhida) {
-    alert("Por favor, preencha todas as etapas antes de finalizar a compra.");
-    return;
-  }
+  const nome = `Gloss Personalizado - ${glossPersonalizado.cor}, ${glossPersonalizado.glitter ? 'com glitter' : 'sem glitter'}, ${glossPersonalizado.aroma}, embalagem ${glossPersonalizado.embalagem}`;
+  adicionarAoCarrinho(nome, 39.90);
+  document.getElementById("personalizacao").classList.add("oculto");
+}
 
-  let resumo = `Resumo do seu gloss personalizado:\n\n` +
-               `Cor: ${corEscolhida}\n` +
-               `Glitter: ${glitterEscolhido ? "Sim" : "Não"}\n` +
-               `Aroma: ${aromaEscolhido}\n` +
-               `Embalagem: ${embalagemEscolhida}`;
+function adicionarAoCarrinho(nome, preco) {
+  carrinho.push({ nome, preco });
+  atualizarCarrinho();
+  abrirCarrinho();
+}
 
-  alert(resumo + "\n\nObrigado por comprar com a FETYSA Makeup!");
+function atualizarCarrinho() {
+  const lista = document.getElementById("carrinho-itens");
+  if (!lista) return;
+  lista.innerHTML = "";
+  let total = 0;
+  carrinho.forEach((item, index) => {
+    total += item.preco;
+    const li = document.createElement("li");
+    li.textContent = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
+    const btnRemover = document.createElement("button");
+    btnRemover.textContent = "Remover";
+    btnRemover.onclick = () => {
+      carrinho.splice(index, 1);
+      atualizarCarrinho();
+    };
+    li.appendChild(btnRemover);
+    lista.appendChild(li);
+  });
+  const subtotal = document.getElementById("subtotal");
+  const totalElem = document.getElementById("total");
+  if (subtotal) subtotal.textContent = `R$ ${total.toFixed(2)}`;
+  if (totalElem) totalElem.textContent = `R$ ${total.toFixed(2)}`;
+}
 
-  // Resetar variáveis e esconder seção
-  corEscolhida = "";
-  glitterEscolhido = null;
-  aromaEscolhido = "";
-  embalagemEscolhida = "";
+function abrirCarrinho() {
+  document.getElementById("carrinho-lateral")?.classList.add("aberta");
+}
 
-  document.getElementById('personalizarGloss').classList.add('oculto');
+function fecharCarrinho() {
+  document.getElementById("carrinho-lateral")?.classList.remove("aberta");
+}
+
+function adicionarAosDesejos(nome) {
+  desejos.push(nome);
+  atualizarDesejos();
+  abrirDesejos();
+}
+
+function atualizarDesejos() {
+  const lista = document.getElementById("desejos-itens");
+  if (!lista) return;
+  lista.innerHTML = "";
+  desejos.forEach((nome, index) => {
+    const li = document.createElement("li");
+    li.textContent = nome;
+    const btnRemover = document.createElement("button");
+    btnRemover.textContent = "Remover";
+    btnRemover.onclick = () => {
+      desejos.splice(index, 1);
+      atualizarDesejos();
+    };
+    li.appendChild(btnRemover);
+    lista.appendChild(li);
+  });
+}
+
+function abrirDesejos() {
+  document.getElementById("desejos-lateral")?.classList.add("aberta");
+}
+
+function fecharDesejos() {
+  document.getElementById("desejos-lateral")?.classList.remove("aberta");
+}
+
+function filtrarGloss() {
+  const campo = document.getElementById("campoBusca");
+  if (!campo) return;
+  const termo = campo.value.toLowerCase();
+  document.querySelectorAll(".produto").forEach(produto => {
+    const nome = produto.querySelector("h3")?.textContent.toLowerCase() || "";
+    produto.style.display = nome.includes(termo) ? "block" : "none";
+  });
+}
+
+function finalizarCompra() {
+  alert("Compra finalizada com sucesso!");
+  carrinho.length = 0;
+  atualizarCarrinho();
+  fecharCarrinho();
 }

@@ -1,172 +1,192 @@
-/* Reset básico */
+/* style.css */
+
 body {
   margin: 0;
-  padding: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: Arial, sans-serif;
   background-color: #fff;
   color: #333;
 }
 
-/* Cabeçalho com glitter rosa */
-.glitter-header {
-  background: url('images/glitter-rose.jpg');
-  background-size: cover;
-  padding: 2rem;
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #ffc0cb;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #d63384;
   text-align: center;
-  color: #d4af37;
-  position: relative;
 }
 
-.glitter-header h1 {
-  font-size: 3rem;
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  padding: 0;
   margin: 0;
-  color: #d4af37;
-  text-shadow: 1px 1px 2px #fff;
 }
 
-.top-icons {
-  position: absolute;
-  top: 10px;
-  right: 20px;
+nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.acoes {
   display: flex;
-  gap: 15px;
-  font-size: 1.4rem;
-  color: #fff;
-  flex-wrap: wrap;
-  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.top-icons i {
-  cursor: pointer;
-}
-
-/* Botões principais */
-.hero-center {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin: 3rem auto;
-  flex-wrap: wrap;
-}
-
-.hero-center button {
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
-  background-color: #ffc0cb;
-  border: none;
-  color: #fff;
+.acoes input[type="text"] {
+  padding: 0.5rem;
   border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s;
+  border: none;
 }
 
-.hero-center button:hover {
-  background-color: #d4af37;
+.hero {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(to bottom, #ffc0cb, #fff);
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: #dd4591;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px;
+  background-color:#ffc0cb;
   color: #fff;
+  cursor: pointer;
+  margin: 0.3rem;
 }
 
-/* Seções ocultas */
 .oculto {
   display: none;
 }
 
-/* Estilo das etapas de personalização */
 .etapa {
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
 }
 
-.etapa h2 {
-  margin-bottom: 1rem;
-  color: #d4af37;
-}
-
-.opcoes {
+.opcoes-cor {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.5rem;
+  margin: 1rem 0;
 }
 
-.opcoes button {
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  background-color: #fff0f5;
-  color: #333;
+.opcoes-cor .cor {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
   cursor: pointer;
-  transition: background 0.3s;
-  max-width: 120px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
-.opcoes button:hover {
-  background-color: #ffc0cb;
-  color: #fff;
-  border-color: #d4af37;
-}
-
-.opcoes button img {
-  width: 60px;
-  margin-bottom: 0.5rem;
-}
-
-/* Produtos prontos */
-.produtos-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
+.produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
   padding: 2rem;
 }
 
 .produto {
-  width: 200px;
-  border: 1px solid #f0f0f0;
+  border: 1px solid #eee;
   border-radius: 10px;
   padding: 1rem;
   text-align: center;
-  box-shadow: 0 0 10px rgba(255, 192, 203, 0.3);
-  background-color: #fff;
+  background-color: #fff0f5;
 }
 
 .produto img {
-  width: 100%;
+  max-width: 100%;
+  height: auto;
   border-radius: 8px;
 }
 
-footer {
-  text-align: center;
+.lateral {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 320px;
+  height: 100vh;
+  background-color: white;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
   padding: 1rem;
-  background-color: #fff0f5;
-  color: #888;
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 2000;
 }
 
-/* Responsivo */
+.lateral.aberta {
+  transform: translateX(0);
+}
+
+.checkout {
+  margin-top: 1rem;
+}
+.cadastro {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff0f5;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.cadastro form input,
+.cadastro form button {
+  width: 100%;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.cadastro form button {
+  background-color: #ffc0cb;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.cadastro form button:hover {
+  background-color: #dd4591;
+}
+
+footer {
+  background-color: #f7e2e6;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  color: #fff;
+}
+
 @media (max-width: 768px) {
-  .hero-center {
+  header, .acoes, nav ul {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
 
-  .opcoes {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .top-icons {
-    justify-content: center;
-    position: static;
-    margin-top: 1rem;
-  }
-
-  .produto {
-    width: 90%;
-  }
-
-  .glitter-header h1 {
-    font-size: 2rem;
+  
+  .produtos {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   }
 }
